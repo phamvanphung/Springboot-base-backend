@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.1'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'vn.kienlongbank'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    def open_api_version = "2.2.0";
+    def h2_database_version = '2.2.224';
+    def gson_version = '2.10.1';
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${open_api_version}"
+    implementation "org.springdoc:springdoc-openapi-starter-common:${open_api_version}"
+
+
+
+    // Database Internal
+    implementation group: 'com.h2database', name: 'h2', version: "$h2_database_version"
+
+    // Gson
+    implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
