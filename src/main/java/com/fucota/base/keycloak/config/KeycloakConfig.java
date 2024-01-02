@@ -32,7 +32,11 @@ public class KeycloakConfig {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers("/login")
+                .requestMatchers(
+                    "/login"
+                    ,"/refresh"
+
+                )
                 .permitAll()
                 .anyRequest().authenticated()
             )
