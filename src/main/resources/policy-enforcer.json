@@ -1,0 +1,8 @@
+{
+  "realm": "paperless",
+  "auth-server-url": "http://192.168.1.150:32020",
+  "resource": "paperless",
+  "credentials": {
+    "secret": "CEPQhAE9J0cWrP31rBbRjJZ3h9SUdLs4"
+  }
+}

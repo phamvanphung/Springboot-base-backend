@@ -1,0 +1,60 @@
+
+server:
+  port: 1100
+
+
+#Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: Password123@
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  # for h2 console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          keycloak:
+#            client-id: "${KEYCLOAK_CLIENT_ID:paperless}"
+#            client-secret: "${KEYCLOAK_CLIENT_SECRET:CEPQhAE9J0cWrP31rBbRjJZ3h9SUdLs4}"
+#            authorization-grant-type: "${KEYCLOAK_GRANT_TYPE:authorization_code}"
+#            scope: "${KEYCLOAK_SCOPE:openid}"
+#        provider:
+#          keycloak:
+#            issuer-uri: "${KEYCLOAK_HOST:http://192.168.1.150:32020/realms/paperless}"
+#      resourceserver:
+#        jwt:
+#          issuer-uri: "${KEYCLOAK_HOST:http://192.168.1.150:32020/realms/paperless}"
+
+# For Keycloak security
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "${KEYCLOAK_HOST:http://192.168.1.150:32020}/realms/${KEYCLOAK_REALM:paperless}/protocol/openid-connect/certs"
+
+keycloak:
+  serverUrl: "${KEYCLOAK_HOST:http://192.168.1.150:32020}"
+  clientId: "${KEYCLOAK_CLIENT_ID:paperless}"
+  secret: "${KEYCLOAK_SECRET:CEPQhAE9J0cWrP31rBbRjJZ3h9SUdLs4}"
+  usernameAdmin: "${KEYCLOAK_ADMIN_USERNAME:user}"
+  passwordAdmin: "${KEYCLOAK_ADMIN_PASSWORD:Password123@}"
+  realm: "${KEYCLOAK_REALM:paperless}"
+
+
+
+
+
+
+
+

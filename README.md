@@ -2,11 +2,11 @@
 
 Brand core: include core and Utils
 
-Brand Auth: include branch core plus module security (Login, Logout,.. )
+Brand Auth: include branch core plus module security (Login, Logout, ... )
 
-Brand File: include branch core and moudle file ( mange file, stogage file with S3/ MinIO)
+Brand File: include branch core and module file ( mange file, storage file with S3/ MinIO)
 
-Brand Email: include branch core and moudle Email ( send Email via stmp)
+Brand Email: include branch core and module Email ( send Email via STMP)
 .
 
 .
@@ -15,4 +15,4 @@ Brand Email: include branch core and moudle Email ( send Email via stmp)
 
 Project updating...
 
-When you want to use a feature you can copy moudle in brand have feature to your project. Every brand same a simple to config feature.
+When you want to use a feature you can copy module in brand have feature to your project. Every brand same a simple to config feature.
