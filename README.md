@@ -1,6 +1,15 @@
 # This is project to build a base core for a project backend using springboot.
 
-Brand core: include core and Utils
+# Branch Available
+
+### 1. Brand core: include core and Utils
+
+### 2. Branch Keycloak: 
+
+To config Authorization by Keycloak. Set up keycloak and config in : application.yml file and policy-enforcer.json file.
+
+
+# Branch to dev
 
 Brand Auth: include branch core plus module security (Login, Logout, ... )
 
