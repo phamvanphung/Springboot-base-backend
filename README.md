@@ -4,7 +4,7 @@ Brand core: include core and Utils
 
 Brand Auth: include branch core plus module security (Login, Logout,.. )
 
-Brand File: include branch core and moudle file ( mange file, stogage file with S3/ MinIO)
+Brand File: include branch core and moudle fileDto ( mange fileDto, stogage fileDto with S3/ MinIO)
 
 Brand Email: include branch core and moudle Email ( send Email via stmp)
 .

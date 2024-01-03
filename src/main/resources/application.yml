@@ -1,0 +1,33 @@
+
+server:
+  port: 1100
+
+
+#Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: Password123@
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  # for h2 console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+  # S3:
+aws:
+  host: "${AWS_S3_HOST:https://s3.ap-southeast-1.amazonaws.com}"
+  accessKeyId: "${AWS_S3_ACCESS_KEY_ID:AKIA4P4SIDBG4RLFOYPD}"
+  secretKey: "${AWS_S3_SECRET_KEY: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}"
+  region: "${AWS_S3_REGION:ap-southeast-1}"
+  s3:
+    bucketName: "${AWS_S3_BUCKET_NAME:unicloud-ca}"
+
+
+
