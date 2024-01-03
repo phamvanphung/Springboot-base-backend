@@ -282,4 +282,15 @@ public class StringUtil {
     public static String getUUID(){
         return UUID.randomUUID().toString();
     }
+
+
+    public static String removeDiacritics(String input) {
+        if (input == null) {
+            return null;
+        }
+
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(normalized).replaceAll("");
+    }
 }
