@@ -7,7 +7,7 @@
         <withJansi>true</withJansi>
     </appender>
 
-    <logger name="com.fucota" level="TRACE"/>
+    <logger name="com.fucota.base" level="TRACE"/>
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
