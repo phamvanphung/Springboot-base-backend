@@ -9,6 +9,6 @@ import java.io.InputStream;
 public interface S3Service {
 
     FileDto uploadFile(MultipartFile file);
-    InputStream getFile(FileDto fileDto);
+    byte[] getFile(FileDto fileDto);
 
 }

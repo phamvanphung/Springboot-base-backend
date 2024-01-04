@@ -20,6 +20,7 @@ spring:
       path: /h2-console
 
 
+
   # S3:
 aws:
   host: "${AWS_S3_HOST:https://s3.ap-southeast-1.amazonaws.com}"
@@ -28,6 +29,7 @@ aws:
   region: "${AWS_S3_REGION:ap-southeast-1}"
   s3:
     bucketName: "${AWS_S3_BUCKET_NAME:unicloud-ca}"
+
 
 
 
@@ -43,5 +45,4 @@ project:
   openapi:
     dev-url: "${PROJECT_HOST_DEV:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
     prod-url: "${PROJECT_HOST_PRO:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
-
 

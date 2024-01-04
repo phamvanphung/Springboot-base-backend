@@ -10,11 +10,13 @@ import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import software.amazon.awssdk.core.ResponseInputStream;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import software.amazon.awssdk.services.s3.model.GetObjectResponse;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+import software.amazon.awssdk.services.s3.model.S3Object;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Date;
 import java.util.Objects;
 
@@ -64,7 +66,16 @@ public class ImpS3Service implements S3Service {
     }
 
     @Override
-    public InputStream getFile(FileDto fileDto) {
-        return null;
+    @SneakyThrows
+    public byte[] getFile(FileDto fileDto) {
+        GetObjectRequest request = GetObjectRequest.builder()
+            .bucket(s3ClientConfig.getBucketName())
+            .key(fileDto.getObjectName())
+            .build();
+        ResponseInputStream<GetObjectResponse> response = s3ClientConfig.getClient().getObject(request);
+        if(Objects.isNull(response)){
+            throw new BusinessException(FileError.FILE_NOT_FOUND);
+        }
+        return response.readAllBytes();
     }
 }
