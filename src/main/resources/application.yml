@@ -1,6 +1,6 @@
 
 server:
-  port: 1100
+  port: ${PROJECT_HOST_PORT:1100}
 
 
 #Database
@@ -29,5 +29,19 @@ aws:
   s3:
     bucketName: "${AWS_S3_BUCKET_NAME:unicloud-ca}"
 
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+
+project:
+  openapi:
+    dev-url: "${PROJECT_HOST_DEV:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
+    prod-url: "${PROJECT_HOST_PRO:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
 
 

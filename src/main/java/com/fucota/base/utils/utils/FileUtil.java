@@ -26,7 +26,8 @@ public class FileUtil {
             byte[] digest = dis.getMessageDigest().digest();
             return bytesToHex(digest);
         } catch (Exception e) {
-            throw new RuntimeException("Error calculating MD5 hash", e);
+//            throw new RuntimeException("Error calculating MD5 hash", e);
+            return null;
         }
     }
 
