@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.text.Normalizer;
 import java.util.Arrays;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 public class StringUtil {
@@ -278,5 +279,18 @@ public class StringUtil {
     }
 
 
+    public static String getUUID(){
+        return UUID.randomUUID().toString();
+    }
 
+
+    public static String removeDiacritics(String input) {
+        if (input == null) {
+            return null;
+        }
+
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(normalized).replaceAll("");
+    }
 }

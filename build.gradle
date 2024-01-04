@@ -26,6 +26,7 @@ dependencies {
     def open_api_version = "2.2.0";
     def h2_database_version = '2.2.224';
     def gson_version = '2.10.1';
+    def spring_version = '3.2.1';
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -35,7 +36,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${open_api_version}"
-    implementation "org.springdoc:springdoc-openapi-starter-common:${open_api_version}"
 
 
 
@@ -44,6 +44,14 @@ dependencies {
 
     // Gson
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
+
+    // AOP
+    implementation "org.springframework.boot:spring-boot-starter-parent:${spring_version}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${spring_version}"
+//    implementation 'org.fusesource.jansi:jansi:2.4.1'
+
+
+
 
 
     // for security - keycloak

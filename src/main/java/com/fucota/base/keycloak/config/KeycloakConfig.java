@@ -35,6 +35,8 @@ public class KeycloakConfig {
                 .requestMatchers(
                     "/login"
                     ,"/refresh"
+                    ,"/swagger-ui/**"
+                    ,"/api-docs/**"
 
                 )
                 .permitAll()
