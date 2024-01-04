@@ -36,11 +36,18 @@ dependencies {
 
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${open_api_version}"
 
+
     // Database Internal
     implementation group: 'com.h2database', name: 'h2', version: "$h2_database_version"
 
     // Gson
     implementation group: 'com.google.code.gson', name: 'gson', version: "$gson_version"
+
+    // AOP
+    implementation "org.springframework.boot:spring-boot-starter-parent:${open_api_version}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${open_api_version}"
+
+
 
 
     // S3
