@@ -1,0 +1,35 @@
+
+server:
+  port: ${PROJECT_HOST_PORT:1100}
+
+
+#Database
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: Password123@
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  # for h2 console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui
+    enabled: true
+
+project:
+  openapi:
+    dev-url: "${PROJECT_HOST_DEV:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
+    prod-url: "${PROJECT_HOST_PRO:http://127.0.0.1}:${PROJECT_HOST_PORT:1100}"
+
