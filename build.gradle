@@ -48,7 +48,11 @@ dependencies {
     // AOP
     implementation "org.springframework.boot:spring-boot-starter-parent:${spring_version}"
     implementation "org.springframework.boot:spring-boot-starter-aop:${spring_version}"
-//    implementation 'org.fusesource.jansi:jansi:2.4.1'
+
+
+    // hibernate - for audit
+    implementation 'org.hibernate.orm:hibernate-envers:6.4.1.Final'
+
 
 
 
