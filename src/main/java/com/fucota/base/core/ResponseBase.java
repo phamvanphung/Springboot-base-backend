@@ -16,7 +16,7 @@ public class ResponseBase<T> {
 
     public ResponseBase(T data) {
         this.data = data;
-        this.message = CommonResponseCode.SUCCESS.getMessage();
+        this.message = LanguageConfigMessage.getMessage(CommonResponseCode.SUCCESS.name());
         this.code = CommonResponseCode.SUCCESS.getCode();
     }
 

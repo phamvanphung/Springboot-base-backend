@@ -2,11 +2,8 @@ package com.fucota.base.core;
 
 public interface IResponseCode {
     int code = 0;
-    String message = "";
-    String viMessage = "";
+    String name = "";
 
     int getCode();
-
-    String getMessage();
-    String getViMessage();
+    String getName();
 }

@@ -45,7 +45,6 @@ public class BaseExceptionController {
     public ResponseEntity<?> handleBusinessException(BusinessException e) {
         log.error("Business Error: {}, trace: {}", e.getMessage(), getTrace(e));
         String requestLanguage = request.getHeader(HttpHeaders.ACCEPT_LANGUAGE);
-
         return ResponseEntity.ok(new ResponseBase<>(e.getCode(), e.getMessage()));
     }
 
@@ -75,7 +74,7 @@ public class BaseExceptionController {
         String nameParamInvalidString = errorFields[0];
         ResponseBase<?> responseBase = new ResponseBase<>(errors);
         responseBase.setCode(CommonResponseCode.INVALID_PARAM.getCode());
-        responseBase.setMessage(CommonResponseCode.INVALID_PARAM.getMessage() + " : " + nameParamInvalidString.substring(0, nameParamInvalidString.length() - 2));
+        responseBase.setMessage(LanguageConfigMessage.getMessage(CommonResponseCode.INVALID_PARAM.name()) + " : " + nameParamInvalidString.substring(0, nameParamInvalidString.length() - 2));
 
         return new ResponseEntity<>(responseBase, HttpStatus.BAD_REQUEST);
     }
@@ -85,7 +84,7 @@ public class BaseExceptionController {
         return new ResponseEntity<>(
             new ResponseBase<>(
                 CommonResponseCode.ACCESS_DENIED.getCode(),
-                CommonResponseCode.ACCESS_DENIED.getMessage()),
+                LanguageConfigMessage.getMessage(CommonResponseCode.ACCESS_DENIED.name())),
             HttpStatus.FORBIDDEN);
     }
 
@@ -101,7 +100,7 @@ public class BaseExceptionController {
 
         ResponseBase<?> responseBase = new ResponseBase<>(errors);
         responseBase.setCode(CommonResponseCode.INVALID_PARAM.getCode());
-        responseBase.setMessage(CommonResponseCode.INVALID_PARAM.getMessage());
+        responseBase.setMessage(LanguageConfigMessage.getMessage(CommonResponseCode.INVALID_PARAM.name()));
 
         return responseBase;
     }

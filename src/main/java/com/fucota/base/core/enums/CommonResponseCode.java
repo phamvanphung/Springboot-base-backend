@@ -5,28 +5,22 @@ import com.fucota.base.core.IResponseCode;
 
 public enum CommonResponseCode implements IResponseCode {
     // Common
-    SUCCESS(0, "Success", "Thao tác thành công"),
-    FAILED(1, "Failed", "Thao tác thất bại"),
-    COMMON_ERROR(2, "Common Error", "Có lỗi xảy ra"),
-    INVALID_PARAM(3, "Invalid param", "Thông số không hợp lệ"),
-    INVALID_SESSION(4, "Invalid session", "Phiên làm việc hết hạn"),
-    UNHANDLED_REQUEST(5, "Unknown handler to handle this request","Chưa có quá trình xử lý cho yêu cầu này"),
-    ACCESS_DENIED(10, "Access denied","Từ chối truy cập"),
-
+    SUCCESS(0,"SUCCESS"),
+    FAILED(1,"FAILED"),
+    COMMON_ERROR(2,"COMMON_ERROR"),
+    INVALID_PARAM(3,"INVALID_PARAM"),
+    INVALID_SESSION(4,"INVALID_SESSION"),
+    UNHANDLED_REQUEST(5,"UNHANDLED_REQUEST"),
+    ACCESS_DENIED(10,"ACCESS_DENIED"),
     ;
 
     private  int code;
-    private  String message;
-    private  String viMessage;
-    CommonResponseCode(int code, String message) {
-        this.code = code;
-        this.message = message;
-    }
+    private String name;
 
-    CommonResponseCode(int code, String message, String viMessage){
+    CommonResponseCode(int code,String name){
+
         this.code = code;
-        this.message = message;
-        this.viMessage = viMessage;
+        this.name = name;
     }
 
 
@@ -36,13 +30,9 @@ public enum CommonResponseCode implements IResponseCode {
     }
 
     @Override
-    public String getMessage() {
-        return this.message;
+    public String getName() {
+        return this.name;
     }
 
-    @Override
-    public String getViMessage() {
-        return this.viMessage;
-    }
 
 }

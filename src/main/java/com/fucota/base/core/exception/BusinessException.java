@@ -2,6 +2,8 @@ package com.fucota.base.core.exception;
 
 
 import com.fucota.base.core.IResponseCode;
+import com.fucota.base.core.LanguageConfigMessage;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class BusinessException extends RuntimeException {
@@ -9,7 +11,7 @@ public class BusinessException extends RuntimeException {
     private final IResponseCode responseCode;
 
     public BusinessException(IResponseCode responseCode) {
-        super(responseCode.getMessage());
+        super(responseCode.getName());
         this.responseCode = responseCode;
     }
 
@@ -18,7 +20,8 @@ public class BusinessException extends RuntimeException {
     }
 
     public String getMessage() {
-        return this.responseCode == null ? "unknown" : this.responseCode.getMessage();
+        String message = LanguageConfigMessage.getMessage(this.responseCode.getName());
+        return this.responseCode == null ? "unknown" : (StringUtils.isBlank(message) ? "unknown" : message);
     }
 
     public int getCode() {

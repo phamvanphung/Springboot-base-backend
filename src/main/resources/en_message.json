@@ -1,0 +1,10 @@
+{
+  "HELLO": "helo",
+  "SUCCESS": "Success",
+  "FAILED": "Failed",
+  "COMMON_ERROR": "Have error occur",
+  "INVALID_PARAM": "Invalid param",
+  "INVALID_SESSION": "Invalid session",
+  "UNHANDLED_REQUEST": "No handler for request",
+  "ACCESS_DENIED": "Access deny"
+}
