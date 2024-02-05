@@ -12,6 +12,8 @@ public enum CommonResponseCode implements IResponseCode {
     INVALID_SESSION(4, "Invalid session", "Phiên làm việc hết hạn"),
     UNHANDLED_REQUEST(5, "Unknown handler to handle this request","Chưa có quá trình xử lý cho yêu cầu này"),
     ACCESS_DENIED(10, "Access denied","Từ chối truy cập"),
+    THIRD_PARTY_API_ERROR(11,"Third party api error","Kết nối thất bại"),
+    TRANSACTION_FAILED(12,"Transaction failed","Giao dịch thất bại")
 
     ;
 
@@ -43,6 +45,15 @@ public enum CommonResponseCode implements IResponseCode {
     @Override
     public String getViMessage() {
         return this.viMessage;
+    }
+
+    public static CommonResponseCode fromCode(int code) {
+        for (CommonResponseCode responseCode : CommonResponseCode.values()) {
+            if (responseCode.getCode() == code) {
+                return responseCode;
+            }
+        }
+        throw new IllegalArgumentException("Invalid response code: " + code);
     }
 
 }
